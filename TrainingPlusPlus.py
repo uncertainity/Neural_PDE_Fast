@@ -15,8 +15,8 @@ from torchdiffeq import odeint_adjoint as odeint
 from itertools import chain
 from GRUCell import GRU
 from HeatClassUpdated import Heat
-from WaveClassUpdated import Wave
-from NeuralPDEClass import NeuralPDE
+from WavePlusPlus import Wave
+from NeuralPDEPlusPlus import NeuralPDE
 import torchdyn
 import logging
 
@@ -193,8 +193,8 @@ def feed_forward(loader,num_classes,train = True,return_sequences = True,seq_len
             elif j == seq_len - 1:
                 hidden_state[-batch_size:] = input
         
-        print("Hidden_state size:",hidden_state.shape)
-        asdad += 1            
+        #print("Hidden_state size:",hidden_state.shape)
+        #asdad += 1            
         Times[Times.isnan()] = 1.0
         Times = Times.reshape([Times.shape[0],1])
         #print("Times shape inside forward:",Times.shape)
