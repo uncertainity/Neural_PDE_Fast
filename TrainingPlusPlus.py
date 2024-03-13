@@ -285,3 +285,8 @@ for epoch in range(epochs):
     scheduler.step()
     #np.save("/content/drive/MyDrive/wave_models/"+dataset+"heat_steps%d_%s_train_loss.npy"%(steps,solver),train_loss)
     #np.save("/content/drive/MyDrive/wave_models/"+dataset+"heat_steps%d_%s_valid_loss.npy"%(steps,solver),test_loss)
+if dataset_name =='walk':
+	#neuralpde.load_state_dict(torch.load("./models/wave_plus_plus"+"%d_best_steps%d_%s_model.pth"))
+	loss =feed_forward(testloader,train=False)
+	print("Test loss:",loss)
+

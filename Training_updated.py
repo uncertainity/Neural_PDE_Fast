@@ -194,7 +194,7 @@ def feed_forward(loader,num_classes,train = True,return_sequences = True,seq_len
                 hidden_state[-batch_size:] = input
         
         print("Hidden_state size:",hidden_state.shape)
-        asdad += 1            
+        #asdad += 1            
         Times[Times.isnan()] = 1.0
         Times = Times.reshape([Times.shape[0],1])
         #print("Times shape inside forward:",Times.shape)
@@ -285,3 +285,7 @@ for epoch in range(epochs):
     scheduler.step()
     #np.save("/content/drive/MyDrive/wave_models/"+dataset+"heat_steps%d_%s_train_loss.npy"%(steps,solver),train_loss)
     #np.save("/content/drive/MyDrive/wave_models/"+dataset+"heat_steps%d_%s_valid_loss.npy"%(steps,solver),test_loss)
+if dataset_name =='walk':
+	#neuralpde.load_state_dict(torch.load("./models/wave_plus_plus"+"%d_best_steps%d_%s_model.pth"))
+	loss =feed_forward(testloader,train=False)
+	print("Test loss:",loss)
